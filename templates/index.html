@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог вакансий и резюме</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                <div class="navbar-logo">
+                    <img src="/static/images/logo.svg" alt="Logo">
+                </div>
+                <h1>Каталог вакансий и резюме</h1>
+            </a>
+            <div class="nav-links">
+                <a href="/" class="active">Главная</a>
+                <a href="/vacancies">Вакансии</a>
+                <a href="/resumes">Резюме</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="hero">
+            <h2>Добро пожаловать в каталог вакансий и резюме!</h2>
+            <p>Найдите работу мечты или идеального кандидата</p>
+        </div>
+
+        <div class="cards">
+            <div class="card">
+                <div class="card-icon">
+                    <img src="/static/images/briefcase.svg" alt="Вакансии">
+                </div>
+                <h3>Вакансии</h3>
+                <p>Просматривайте и публикуйте вакансии с удобными фильтрами поиска</p>
+                <a href="/vacancies" class="btn">Перейти к вакансиям</a>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <img src="/static/images/user-tie.svg" alt="Резюме">
+                </div>
+                <h3>Резюме</h3>
+                <p>Управляйте резюме и находите подходящих кандидатов</p>
+                <a href="/resumes" class="btn">Перейти к резюме</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Резюме - Каталог</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <a href="/" class="navbar-brand">
+                <div class="navbar-logo">
+                    <img src="/static/images/logo.svg" alt="Logo">
+                </div>
+                <h1>Каталог вакансий и резюме</h1>
+            </a>
+            <div class="nav-links">
+                <a href="/">Главная</a>
+                <a href="/vacancies">Вакансии</a>
+                <a href="/resumes" class="active">Резюме</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h2>
+                <img src="/static/images/user-tie.svg" alt="Резюме">
+                Резюме
+            </h2>
+            <button class="btn btn-primary" onclick="showCreateResumeForm()">+ Добавить резюме</button>
+        </div>
+
+        <div class="search-panel">
+            <input type="text" id="searchQuery" placeholder="Поиск по должности, ФИО, навыкам..." class="search-input">
+            
+            <div class="filters">
+                <input type="text" id="locationFilter" placeholder="Местоположение">
+                
+                <select id="employmentTypeFilter">
+                    <option value="">Тип занятости</option>
+                    <option value="Полная">Полная</option>
+                    <option value="Частичная">Частичная</option>
+                    <option value="Удаленная">Удаленная</option>
+                </select>
+                
+                <select id="experienceFilter">
+                    <option value="">Опыт</option>
+                    <option value="Без опыта">Без опыта</option>
+                    <option value="1-3 года">1-3 года</option>
+                    <option value="3-6 лет">3-6 лет</option>
+                    <option value="Более 6 лет">Более 6 лет</option>
+                </select>
+                
+                <input type="number" id="salaryMinFilter" placeholder="Зарплата от">
+                <input type="number" id="salaryMaxFilter" placeholder="Зарплата до">
+                
+                <button class="btn" onclick="searchResumes()">Найти</button>
+                <button class="btn btn-secondary" onclick="resetFilters()">Сбросить</button>
+            </div>
+        </div>
+
+        <div id="resumesList" class="items-list">
+            <div class="loading">Загрузка резюме...</div>
+        </div>
+
+        <div id="resumeModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3 id="modalTitle">Добавить резюме</h3>
+                <form id="resumeForm">
+                    <input type="hidden" id="resumeId">
+                    
+                    <label>ФИО *</label>
+                    <input type="text" id="full_name" required>
+                    
+                    <label>Желаемая должность *</label>
+                    <input type="text" id="position" required>
+                    
+                    <label>О себе *</label>
+                    <textarea id="about" rows="5" required></textarea>
+                    
+                    <label>Ожидаемая зарплата</label>
+                    <input type="number" id="salary_expectation" min="0">
+                    
+                    <label>Местоположение *</label>
+                    <input type="text" id="location" required>
+                    
+                    <label>Желаемый тип занятости *</label>
+                    <select id="employment_type" required>
+                        <option value="">Выберите тип</option>
+                        <option value="Полная">Полная</option>
+                        <option value="Частичная">Частичная</option>
+                        <option value="Удаленная">Удаленная</option>
+                    </select>
+                    
+                    <label>Опыт работы *</label>
+                    <select id="experience_years" required>
+                        <option value="">Выберите опыт</option>
+                        <option value="Без опыта">Без опыта</option>
+                        <option value="1-3 года">1-3 года</option>
+                        <option value="3-6 лет">3-6 лет</option>
+                        <option value="Более 6 лет">Более 6 лет</option>
+                    </select>
+                    
+                    <label>Навыки (через запятую)</label>
+                    <input type="text" id="skills" placeholder="Python, Django, PostgreSQL">
+                    
+                    <label>Образование</label>
+                    <input type="text" id="education">
+                    
+                    <label>Email *</label>
+                    <input type="email" id="email" required>
+                    
+                    <label>Телефон</label>
+                    <input type="tel" id="phone">
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">Сохранить</button>
+                        <button type="button" class="btn btn-secondary" onclick="closeModal()">Отмена</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <script src="/static/resumes.js"></script>
+</body>
+</html>
